@@ -178,13 +178,13 @@ class MaterialIcon
     @html = @html.nil? || !@html.is_a?(Hash) ? {} : @html
 
     # Create the icon
-    content_tag(:i, "",
+    content_tag(:i, @icon,
                 @html.merge(
                   style: @style,
                   title: @tooltip_copy,
                   onclick: @click_action,
                   id: @id,
-                  class: "material-icons#{@icon_style}#{@size}#{@rotation}#{@css_class} #{@icon}"))
+                  class: "material-icons#{@icon_style}#{@size}#{@rotation}#{@css_class}"))
   end
 
   # Fix #13. Some Rails methods uses to_str instead of to_s. In this case, to_str is handled
@@ -215,8 +215,12 @@ class MaterialIcon
   end
 
   self.icon_names.each do |icon_name|
-    define_method(icon_name.to_s) do
-      @icon = icon_name.to_s
+    icon_name_str = icon_name.to_s
+    # Skip icons that conflict with existing methods (including inherited methods)
+    next if method_defined?(icon_name_str.to_sym)
+    
+    define_method(icon_name_str) do
+      @icon = icon_name_str
       self
     end
   end

@@ -12,14 +12,14 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.licenses     = ['MIT', 'Apache-2.0']
 
-  # Basic dependency
+  # Basic dependency - supports Rails 3.2 through 8.x
   s.add_dependency 'railties', '>= 3.2'
 
   # Dependencies for testing
-  s.add_development_dependency 'sqlite3', '~> 1.3'
+  s.add_development_dependency 'sqlite3', '>= 1.3'
   s.add_development_dependency 'rspec', '~> 3.2'
   s.add_development_dependency 'rspec-rails', '~> 3.0'
-  s.add_development_dependency 'capybara', '~> 2.4.4'
-  s.add_development_dependency 'pry', '~> 0.10.3'
-  s.add_development_dependency 'pry-nav', '~> 0.2.4'
+  s.add_development_dependency 'capybara', '>= 2.4'
+  s.add_development_dependency 'pry', '>= 0.10'
+  s.add_development_dependency 'pry-nav', '>= 0.2'
 end

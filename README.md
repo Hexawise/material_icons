@@ -194,6 +194,9 @@ Ruby versions:
 * 2.7
 * 3.0
 * 3.1
+* 3.2
+* 3.3
+* 3.4
 
 Rails versions:
 
@@ -201,6 +204,7 @@ Rails versions:
 * 6.0
 * 6.1
 * 7.0
+* 8.1
 
 # They are using Material icons for Rails :)
 
